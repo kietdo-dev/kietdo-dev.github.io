@@ -37,7 +37,7 @@ export const FeaturedProjects: FC = () => {
                     </li>
                   ))}
                 </ul>
-                <div className="flex flex-wrap mt-4">
+                <div className="flex flex-wrap mt-4 gap-y-2">
                   {project.techStack.map((tech, index) => (
                     <Badge
                       key={index}
