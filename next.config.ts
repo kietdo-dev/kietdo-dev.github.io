@@ -4,7 +4,6 @@ const nextConfig: NextConfig = {
   /* config options here */
   output: "export",
   reactStrictMode: true,
-  basePath: "/",
 };
 
 export default nextConfig;
