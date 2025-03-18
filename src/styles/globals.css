@@ -1,42 +1,210 @@
+@import "tailwindcss";
+
+/* @plugin "@tailwindcss/typography";
+@plugin "@tailwindcss/aspect-ratio"; */
+@plugin "tailwindcss-animate";
+
+@variant dark (&:where(.dark, .dark *));
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* white */
+  --d-background: oklch(1 0 0);
+  /* zinc-950 */
+  --d-foreground: oklch(0.141 0.005 285.823);
+  /* zinc-950 */
+  --d-primary: oklch(0.141 0.005 285.823);
+  /* zinc-50 */
+  --d-primary-foreground: oklch(0.985 0 0);
+  /* zinc-100 */
+  --d-muted: oklch(0.967 0.001 286.375);
+  /* zinc-500 */
+  --d-muted-foreground: oklch(0.552 0.016 285.938);
+  /* white */
+  --d-card: oklch(1 0 0);
+  /* white */
+  --d-popover: oklch(1 0 0);
+  /* zinc-950 */
+  --d-popover-foreground: oklch(0.141 0.005 285.823);
+  /* zinc-100 */
+  --d-accent: oklch(0.967 0.001 286.375);
+  /* zinc-900 */
+  --d-accent-foreground: oklch(0.21 0.006 285.885);
+  /* zinc-200 */
+  --d-border: oklch(0.92 0.004 286.32);
+  /* zinc-100 */
+  --d-grid: oklch(0.967 0.001 286.375);
+  /* zinc-200 */
+  --d-input: oklch(0.92 0.004 286.32);
+  /* blue-700 */
+  --d-ring: oklch(0.488 0.243 264.376);
+  /* blue-600 */
+  --d-info: oklch(0.546 0.245 262.881);
+  /* blue-700 */
+  --d-info-foreground: oklch(0.488 0.243 264.376);
+  /* green-600 */
+  --d-success: oklch(0.627 0.194 149.214);
+  /* green-600 */
+  --d-success-foreground: oklch(0.627 0.194 149.214);
+  /* red-600 */
+  --d-destructive: oklch(0.577 0.245 27.325);
+  /* red-600 */
+  --d-destructive-foreground: oklch(0.577 0.245 27.325);
+  /* blue-700 */
+  --d-link: oklch(0.488 0.243 264.376);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+.dark {
+  /* zinc-950 */
+  --d-background: oklch(0.141 0.005 285.823);
+  /* zinc-50 */
+  --d-foreground: oklch(0.985 0 0);
+  /* zinc-700 */
+  --d-primary: oklch(0.37 0.013 285.805);
+  /* zinc-50 */
+  --d-primary-foreground: oklch(0.985 0 0);
+  /* zinc-800 */
+  --d-muted: oklch(0.274 0.006 286.033);
+  /* zinc-400 */
+  --d-muted-foreground: oklch(0.705 0.015 286.067);
+  /* zinc-900 */
+  --d-card: oklch(0.21 0.006 285.885);
+  /* zinc-950 */
+  --d-popover: oklch(0.141 0.005 285.823);
+  /* zinc-50 */
+  --d-popover-foreground: oklch(0.985 0 0);
+  /* zinc-800 */
+  --d-accent: oklch(0.274 0.006 286.033);
+  /* zinc-50 */
+  --d-accent-foreground: oklch(0.985 0 0);
+  /* zinc-800 */
+  --d-border: oklch(0.274 0.006 286.033);
+  /* zinc-900 */
+  --d-grid: oklch(0.21 0.006 285.885);
+  /* zinc-800 */
+  --d-input: oklch(0.274 0.006 286.033);
+  /* blue-500 */
+  --d-ring: oklch(0.623 0.214 259.815);
+  /* blue-700 */
+  --d-info: oklch(0.488 0.243 264.376);
+  /* blue-500 */
+  --d-info-foreground: oklch(0.623 0.214 259.815);
+  /* green-700 */
+  --d-success: oklch(0.527 0.154 150.069);
+  /* green-500 */
+  --d-success-foreground: oklch(0.723 0.219 149.579);
+  /* red-700 */
+  --d-destructive: oklch(0.505 0.213 27.518);
+  /* red-500 */
+  --d-destructive-foreground: oklch(0.637 0.237 25.331);
+  /* blue-500 */
+  --d-link: oklch(0.623 0.214 259.815);
+}
+
+.container {
+  @apply my-0 mx-auto px-4 lg:px-6 max-w-none sm:max-w-[640px] lg:max-w-[768px] xl:max-w-[880px] 2xl:max-w-[880px];
+}
+
+@theme inline {
+  --color-background: var(--d-background);
+  --color-foreground: var(--d-foreground);
+  --color-primary: var(--d-primary);
+  --color-primary-foreground: var(--d-primary-foreground);
+  --color-muted: var(--d-muted);
+  --color-muted-foreground: var(--d-muted-foreground);
+  --color-card: var(--d-card);
+  --color-popover: var(--d-popover);
+  --color-popover-foreground: var(--d-popover-foreground);
+  --color-accent: var(--d-accent);
+  --color-accent-foreground: var(--d-accent-foreground);
+  --color-border: var(--d-border);
+  --color-grid: var(--d-grid);
+  --color-input: var(--d-input);
+  --color-ring: var(--d-ring);
+  --color-info: var(--d-info);
+  --color-info-foreground: var(--d-info-foreground);
+  --color-success: var(--d-success);
+  --color-success-foreground: var(--d-success-foreground);
+  --color-destructive: var(--d-destructive);
+  --color-destructive-foreground: var(--d-destructive-foreground);
+  --color-link: var(--d-link);
+
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+  --font-heading: var(--font-sans);
+
+  --animate-accordion-down: accordion-down 0.3s ease-out;
+  --animate-accordion-up: accordion-up 0.3s ease-out;
+  --animate-header-slide-down: header-slide-down 0.3s ease-out forwards;
+
+  @keyframes accordion-down {
+    from {
+      height: 0;
+    }
+    to {
+      height: var(--radix-accordion-content-height);
+    }
+  }
+
+  @keyframes accordion-up {
+    from {
+      height: var(--radix-accordion-content-height);
+    }
+    to {
+      height: 0;
+    }
+  }
+
+  @keyframes header-slide-down {
+    from {
+      transform: translateY(-100%);
+    }
+    to {
+      transform: translateY(0%);
+    }
   }
 }
 
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    @apply border-border;
+  }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-@media (prefers-color-scheme: dark) {
   html {
-    color-scheme: dark;
+    @apply scroll-smooth scroll-pt-16;
+  }
+
+  body {
+    @apply bg-background font-mono text-foreground antialiased text-sm;
+    font-synthesis-weight: none;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Custom scrollbar styling. Thanks shadcn-ui */
+  ::-webkit-scrollbar {
+    width: 5px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--d-border);
+    border-radius: 5px;
+  }
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--d-border) transparent;
+  }
+}
+
+@utility no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
   }
 }
