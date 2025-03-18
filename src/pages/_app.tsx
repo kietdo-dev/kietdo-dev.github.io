@@ -4,6 +4,7 @@ import "@src/styles/globals.css";
 import type { AppProps } from "next/app";
 import { useRouter } from "next/router";
 import { Fragment } from "react";
+import "@src/styles/globals.css";
 
 type AppLayoutProps = AppProps & {
   Component: PageWithLayoutType;

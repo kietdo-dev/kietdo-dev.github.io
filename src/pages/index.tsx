@@ -1,5 +1,3 @@
-import "@src/styles/globals.css";
-
 import Head from "next/head";
 import { Hero } from "@src/components/molecules/Hero";
 import { DataSection } from "@src/components/molecules/DataSection";
