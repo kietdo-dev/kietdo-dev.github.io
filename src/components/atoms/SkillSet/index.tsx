@@ -1,6 +1,6 @@
 import { SKILLS } from "@src/constants";
 import Image from "next/image";
-import { FC, useEffect } from "react";
+import { FC } from "react";
 import * as motion from "motion/react-client";
 
 export const SkillSet: FC = () => {
