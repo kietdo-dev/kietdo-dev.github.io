@@ -11,7 +11,10 @@ import { useEffect } from "react";
 
 export default function Home() {
   useEffect(() => {
-    fetch("/api/about")
+    fetch("/api/about", {
+      body: JSON.stringify({ type: "About" }),
+      method: "POST",
+    })
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
