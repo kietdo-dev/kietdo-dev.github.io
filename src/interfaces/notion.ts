@@ -1,0 +1,1 @@
+export type NotionTable = "About" | "WorkExperience" | "FeaturedProjects";

@@ -6,8 +6,18 @@ import { PersonalInfo } from "@src/components/molecules/PersonalInfo";
 import { SkillSet } from "@src/components/atoms/SkillSet";
 import { WorkExperience } from "@src/components/molecules/WorkExperience";
 import { FeaturedProjects } from "@src/components/molecules/FeaturedProjects";
+import { useEffect } from "react";
+// const { Client } = require('@notionhq/client');
 
 export default function Home() {
+  useEffect(() => {
+    fetch("/api/about")
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+      });
+  }, []);
+
   return (
     <>
       <Head>
