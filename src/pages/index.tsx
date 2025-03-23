@@ -6,20 +6,10 @@ import { PersonalInfo } from "@src/components/molecules/PersonalInfo";
 import { SkillSet } from "@src/components/atoms/SkillSet";
 import { WorkExperience } from "@src/components/molecules/WorkExperience";
 import { FeaturedProjects } from "@src/components/molecules/FeaturedProjects";
-import { useEffect } from "react";
-// const { Client } = require('@notionhq/client');
+import { useAbout } from "@src/hooks/useAbout";
 
 export default function Home() {
-  useEffect(() => {
-    fetch("/api/about", {
-      body: JSON.stringify({ type: "About" }),
-      method: "POST",
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-      });
-  }, []);
+  const { data: about } = useAbout();
 
   return (
     <>
@@ -33,7 +23,9 @@ export default function Home() {
         <Hero />
         <PersonalInfo />
 
-        <DataSection title="About">{PERSONAL_INFO.ABOUT.content}</DataSection>
+        <DataSection title="About">
+          {about || PERSONAL_INFO.ABOUT.content}
+        </DataSection>
 
         <DataSection title="Tech Stack">
           <SkillSet />
