@@ -1,15 +1,16 @@
-import { FC } from "react";
+import Image from "next/image";
+import * as motion from "motion/react-client";
+import type { FC } from "react";
+
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@src/components/atoms/Accordion";
-import { FEATURED_PROJECTS } from "@src/constants";
-import Image from "next/image";
 import { Badge } from "@src/components/atoms/Badge";
-import * as motion from "motion/react-client";
-import { ProjectProps } from "@src/interfaces/data";
+import { FEATURED_PROJECTS } from "@src/constants";
+import type { ProjectProps } from "@src/interfaces/data";
 
 export const FeaturedProjects: FC<ProjectProps[]> = (data) => {
   const projects = data || FEATURED_PROJECTS;

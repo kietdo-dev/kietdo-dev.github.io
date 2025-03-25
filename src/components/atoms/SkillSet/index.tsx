@@ -1,7 +1,8 @@
-import { SKILLS } from "@src/constants";
 import Image from "next/image";
-import { FC } from "react";
 import * as motion from "motion/react-client";
+import type { FC } from "react";
+
+import { SKILLS } from "@src/constants";
 
 export const SkillSet: FC = () => {
   return (

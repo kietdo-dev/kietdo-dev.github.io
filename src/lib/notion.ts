@@ -1,8 +1,8 @@
 import { Client } from "@notionhq/client";
-import { NotionTable } from "@src/interfaces/notion";
+import type { NotionTable } from "@src/interfaces/notion";
+
 const notion = new Client({ auth: process.env.NOTION_TOKEN });
 const notionToken = process.env.NOTION_TOKEN;
-
 
 function getDBType(tableType: NotionTable) {
   switch (tableType) {
@@ -27,4 +27,4 @@ export const Notion = {
     }
     return null;
   },
-}
+};

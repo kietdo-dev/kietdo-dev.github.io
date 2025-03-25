@@ -1,11 +1,13 @@
+import { useEffect, useState } from "react";
+import Image from "next/image";
+import type { FC } from "react";
+import { TypeAnimation } from "react-type-animation";
+
 import {
   EnglishHelloEffect,
   HelloEffect,
 } from "@src/components/atoms/HelloEffect";
 import { cn } from "@src/lib/utils";
-import Image from "next/image";
-import { FC, useEffect, useState } from "react";
-import { TypeAnimation } from "react-type-animation";
 
 const TMP_AVATAR = "/images/avatar.jpg";
 const NAME = "Kiệt Đỗ";

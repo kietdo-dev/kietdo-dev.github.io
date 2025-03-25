@@ -1,8 +1,10 @@
+import { useEffect, useState } from "react";
+import Image from "next/image";
+import type { FC } from "react";
+
 import { MobileMenu } from "@src/components/molecules/Header/MobileMenu";
 import { HEADER_MENU } from "@src/constants";
 import { cn } from "@src/lib/utils";
-import Image from "next/image";
-import { FC, useEffect, useState } from "react";
 
 export const Header: FC = () => {
   const [isStick, setSticky] = useState(false);

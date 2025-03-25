@@ -1,11 +1,12 @@
-import MainLayout from "@src/layouts/MainLayout";
-import PageWithLayoutType from "@src/layouts/pageWithLayouts";
-import "@src/styles/globals.css";
+import { Fragment } from "react";
 import type { AppProps } from "next/app";
 import { useRouter } from "next/router";
-import { Fragment } from "react";
-import "@src/styles/globals.css";
+
+import MainLayout from "@src/layouts/MainLayout";
+import type PageWithLayoutType from "@src/layouts/pageWithLayouts";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+
+import "@src/styles/globals.css";
 
 type AppLayoutProps = AppProps & {
   Component: PageWithLayoutType;

@@ -6,10 +6,10 @@ export type WorkExperienceProps = {
   logoLink: string;
   duration: string;
   companyLink: string;
-}
+};
 
 export type ProjectProps = {
   description: string;
   name: string;
   techStack: string[];
-}
+};

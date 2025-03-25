@@ -1,11 +1,14 @@
-import { NotionTable } from "@src/interfaces/notion";
+import type { NextApiRequest, NextApiResponse } from "next";
+
+import type { NotionTable } from "@src/interfaces/notion";
 import { Notion } from "@src/lib/notion";
-import { NextApiRequest, NextApiResponse } from "next";
 
-
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse
+) {
   try {
-    const data: { [key: string]: any } = {}
+    const data: { [key: string]: unknown } = {};
     const tables = ["About", "WorkExperience", "FeaturedProjects"];
 
     const results = await Promise.all(
@@ -21,6 +24,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     res.status(200).json(data);
   } catch (error) {
-    console.log(error);
+    throw new Error(error instanceof Error ? error.message : String(error));
   }
 }

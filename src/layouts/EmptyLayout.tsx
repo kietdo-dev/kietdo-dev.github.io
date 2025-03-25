@@ -1,5 +1,5 @@
-import type { FC, ReactNode } from "react";
 import { Fragment } from "react";
+import type { FC, ReactNode } from "react";
 
 interface Props {
   children: ReactNode;

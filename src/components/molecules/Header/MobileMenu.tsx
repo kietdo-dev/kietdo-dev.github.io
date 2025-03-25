@@ -1,10 +1,11 @@
-import { FC } from "react";
+import Image from "next/image";
+import type { FC } from "react";
+
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
 } from "@src/components/atoms/Popover";
-import Image from "next/image";
 import { cn } from "@src/lib/utils";
 
 type Props = {

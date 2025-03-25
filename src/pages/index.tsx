@@ -1,14 +1,14 @@
 import Head from "next/head";
-import { Hero } from "@src/components/molecules/Hero";
-import { DataSection } from "@src/components/molecules/DataSection";
-import { PERSONAL_INFO } from "@src/constants";
-import { PersonalInfo } from "@src/components/molecules/PersonalInfo";
-import { SkillSet } from "@src/components/atoms/SkillSet";
-import { WorkExperience } from "@src/components/molecules/WorkExperience";
-import { FeaturedProjects } from "@src/components/molecules/FeaturedProjects";
-import { useData } from "@src/hooks/useData";
+
 import { Loader } from "@src/components/atoms/Loader";
-import { useEffect } from "react";
+import { SkillSet } from "@src/components/atoms/SkillSet";
+import { DataSection } from "@src/components/molecules/DataSection";
+import { FeaturedProjects } from "@src/components/molecules/FeaturedProjects";
+import { Hero } from "@src/components/molecules/Hero";
+import { PersonalInfo } from "@src/components/molecules/PersonalInfo";
+import { WorkExperience } from "@src/components/molecules/WorkExperience";
+import { PERSONAL_INFO } from "@src/constants";
+import { useData } from "@src/hooks/useData";
 
 export default function Home() {
   const { data, isFetching: loading } = useData();
