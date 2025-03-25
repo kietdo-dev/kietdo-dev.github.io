@@ -12,7 +12,14 @@ type AppLayoutProps = AppProps & {
   pageProps: unknown;
 };
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      refetchOnWindowFocus: false,
+      retry: false,
+    },
+  },
+});
 
 export default function App(appProps: AppLayoutProps) {
   const { Component, pageProps } = appProps;

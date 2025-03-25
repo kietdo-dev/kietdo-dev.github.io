@@ -6,10 +6,12 @@ import { PersonalInfo } from "@src/components/molecules/PersonalInfo";
 import { SkillSet } from "@src/components/atoms/SkillSet";
 import { WorkExperience } from "@src/components/molecules/WorkExperience";
 import { FeaturedProjects } from "@src/components/molecules/FeaturedProjects";
-import { useAbout } from "@src/hooks/useAbout";
+import { useData } from "@src/hooks/useData";
+import { Loader } from "@src/components/atoms/Loader";
+import { useEffect } from "react";
 
 export default function Home() {
-  const { data: about } = useAbout();
+  const { data, isFetching: loading } = useData();
 
   return (
     <>
@@ -23,21 +25,31 @@ export default function Home() {
         <Hero />
         <PersonalInfo />
 
-        <DataSection title="About">
-          {about || PERSONAL_INFO.ABOUT.content}
-        </DataSection>
+        {!loading ? (
+          <>
+            <DataSection title="About">
+              {data?.About || PERSONAL_INFO.ABOUT.content}
+            </DataSection>
 
-        <DataSection title="Tech Stack">
-          <SkillSet />
-        </DataSection>
+            <DataSection title="Tech Stack">
+              <SkillSet />
+            </DataSection>
 
-        <DataSection title="Work Experience">
-          <WorkExperience />
-        </DataSection>
+            {data?.WorkExperience && data.WorkExperience?.length > 0 && (
+              <DataSection title="Work Experience">
+                <WorkExperience {...data.WorkExperience} />
+              </DataSection>
+            )}
 
-        <DataSection title="Featured Projects">
-          <FeaturedProjects />
-        </DataSection>
+            <DataSection title="Featured Projects">
+              {data?.FeaturedProjects && (
+                <FeaturedProjects {...data.FeaturedProjects} />
+              )}
+            </DataSection>
+          </>
+        ) : (
+          <Loader />
+        )}
       </div>
     </>
   );

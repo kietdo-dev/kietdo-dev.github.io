@@ -45,3 +45,35 @@ export type AboutResponse = {
     Status: NotionSelectType
   }
 }
+
+export type WorkExperienceResponse = {
+  properties: {
+    CompanyName: NotionRichTextType
+    Name: NotionTitleType
+    Description: NotionRichTextType
+    JobTitle: NotionRichTextType
+    LogoLink: NotionRichTextType;
+    Duration: NotionRichTextType;
+    CompanyLink: NotionRichTextType;
+  }
+}
+
+export type FeaturedProjectsResponse = {
+  properties: {
+    Description: NotionRichTextType
+    Name: NotionTitleType
+    TechStack: NotionRichTextType
+  }
+}
+
+export type DataResponse = {
+  About: NotionResponse<AboutResponse>
+  WorkExperience: NotionResponse<WorkExperienceResponse>
+  FeaturedProjects: NotionResponse<FeaturedProjectsResponse>
+}
+
+export type Data = {
+  About: AboutResponse
+  WorkExperience: WorkExperienceResponse
+  FeaturedProjects: FeaturedProjectsResponse
+}
