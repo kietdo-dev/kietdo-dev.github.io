@@ -7,7 +7,7 @@ import Image from "next/image";
 import { FC, useEffect, useState } from "react";
 import { TypeAnimation } from "react-type-animation";
 
-const TMP_AVATAR = "/images/image_3.jpg";
+const TMP_AVATAR = "/images/avatar.jpg";
 const NAME = "Kiệt Đỗ";
 
 export const Hero: FC = () => {
