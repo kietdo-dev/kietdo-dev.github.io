@@ -1,9 +1,10 @@
-import { WORK_EXPERIENCE } from "@src/constants";
-import { WorkExperienceProps } from "@src/interfaces/data";
-import { cn } from "@src/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
-import { FC } from "react";
+import type { FC } from "react";
+
+import { WORK_EXPERIENCE } from "@src/constants";
+import type { WorkExperienceProps } from "@src/interfaces/data";
+import { cn } from "@src/lib/utils";
 
 export const WorkExperience: FC<WorkExperienceProps[]> = (data) => {
   const workExperience =

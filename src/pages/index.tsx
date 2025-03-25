@@ -22,8 +22,28 @@ export default function Home() {
           content="Portfolio of Kiet Do, a front-end developer showcasing projects and professional experience"
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta
+          name="keywords"
+          content="Kiet Do, Front-End Developer, Web Development, React, Next.js, Portfolio"
+        />
+        <meta name="author" content="Kiet Do" />
+        <meta property="og:title" content="Kiet Do | Front-End Developer" />
+        <meta
+          property="og:description"
+          content="Portfolio of Kiet Do, a front-end developer showcasing projects and professional experience"
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://dokiet.is-a.dev" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Kiet Do | Front-End Developer" />
+        <meta
+          name="twitter:description"
+          content="Portfolio of Kiet Do, a front-end developer showcasing projects and professional experience"
+        />
+        <link rel="canonical" href="https://dokiet.is-a.dev" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+
       <div className="flex flex-col gap-5 md:gap-9">
         <Hero />
         <PersonalInfo />
