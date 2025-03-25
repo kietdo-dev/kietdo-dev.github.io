@@ -1,3 +1,5 @@
+import { Fragment } from "react";
+import type { GetServerSideProps } from "next";
 import Head from "next/head";
 
 import { Loader } from "@src/components/atoms/Loader";
@@ -9,12 +11,37 @@ import { PersonalInfo } from "@src/components/molecules/PersonalInfo";
 import { WorkExperience } from "@src/components/molecules/WorkExperience";
 import { PERSONAL_INFO } from "@src/constants";
 import { useData } from "@src/hooks/useData";
+import { Service } from "@src/services/about";
+import { dehydrate, QueryClient } from "@tanstack/react-query";
+
+export const getServerSideProps = (async () => {
+  const queryClient = new QueryClient();
+
+  try {
+    await queryClient.fetchQuery({
+      queryKey: ["data"],
+      queryFn: () => {
+        return Service.getApi();
+      },
+    });
+
+    return {
+      props: {
+        dehydratedState: dehydrate(queryClient),
+      },
+    };
+  } catch {
+    return {
+      notFound: true,
+    };
+  }
+}) satisfies GetServerSideProps;
 
 export default function Home() {
   const { data, isFetching: loading } = useData();
 
   return (
-    <>
+    <Fragment>
       <Head>
         <title>Kiet Do | Front-End Developer</title>
         <meta
@@ -74,6 +101,6 @@ export default function Home() {
           <Loader />
         )}
       </div>
-    </>
+    </Fragment>
   );
 }
