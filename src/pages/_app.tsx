@@ -5,11 +5,21 @@ import type { AppProps } from "next/app";
 import { useRouter } from "next/router";
 import { Fragment } from "react";
 import "@src/styles/globals.css";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 type AppLayoutProps = AppProps & {
   Component: PageWithLayoutType;
   pageProps: unknown;
 };
+
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      refetchOnWindowFocus: false,
+      retry: false,
+    },
+  },
+});
 
 export default function App(appProps: AppLayoutProps) {
   const { Component, pageProps } = appProps;
@@ -18,9 +28,11 @@ export default function App(appProps: AppLayoutProps) {
 
   return (
     <Fragment>
-      <Layout>
-        <Component {...pageProps} key={router.asPath} />
-      </Layout>
+      <QueryClientProvider client={queryClient}>
+        <Layout>
+          <Component {...pageProps} key={router.asPath} />
+        </Layout>
+      </QueryClientProvider>
     </Fragment>
   );
 }

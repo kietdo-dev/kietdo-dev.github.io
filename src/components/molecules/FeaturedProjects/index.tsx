@@ -9,12 +9,15 @@ import { FEATURED_PROJECTS } from "@src/constants";
 import Image from "next/image";
 import { Badge } from "@src/components/atoms/Badge";
 import * as motion from "motion/react-client";
+import { ProjectProps } from "@src/interfaces/data";
 
-export const FeaturedProjects: FC = () => {
+export const FeaturedProjects: FC<ProjectProps[]> = (data) => {
+  const projects = data || FEATURED_PROJECTS;
+
   return (
     <div>
       <Accordion type="single" collapsible className="w-full">
-        {FEATURED_PROJECTS.map((project, index) => (
+        {Object.values(projects).map((project, index) => (
           <AccordionItem value={project.name} key={index}>
             <AccordionTrigger className="font-sans text-lg font-semibold">
               <div className="flex items-center gap-4">
@@ -28,15 +31,11 @@ export const FeaturedProjects: FC = () => {
                 <span className="cursor-pointer">{project.name}</span>
               </div>
             </AccordionTrigger>
-            <AccordionContent>
+            <AccordionContent className="ml-6">
               <div>
-                <ul className="list-disc pl-5">
-                  {project.description.map((desc, index) => (
-                    <li key={index} className="my-2 md:my-4">
-                      {desc}
-                    </li>
-                  ))}
-                </ul>
+                <p className="text-sm whitespace-pre-wrap">
+                  {project.description}
+                </p>
                 <div className="flex flex-wrap mt-4 gap-y-2">
                   {project.techStack.map((tech, index) => (
                     <Badge

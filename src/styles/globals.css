@@ -135,6 +135,7 @@
   --animate-accordion-down: accordion-down 0.3s ease-out;
   --animate-accordion-up: accordion-up 0.3s ease-out;
   --animate-header-slide-down: header-slide-down 0.3s ease-out forwards;
+  --animate-spin: spin 1s linear infinite;
 
   @keyframes accordion-down {
     from {
@@ -160,6 +161,12 @@
     }
     to {
       transform: translateY(0%);
+    }
+  }
+
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
     }
   }
 }

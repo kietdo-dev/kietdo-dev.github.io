@@ -15,7 +15,9 @@ export const DataSection: FC<Props> = ({ children, title, className = "" }) => {
     >
       <h2 className="font-heading text-3xl font-semibold px-4">{title}</h2>
       <hr className="my-4 border-0 border-b border-dashed" />
-      <div className="px-4 font-mono leading-relaxed">{children}</div>
+      <div className="px-4 font-mono leading-relaxed whitespace-pre-wrap">
+        {children}
+      </div>
     </section>
   );
 };
