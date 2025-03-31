@@ -6,13 +6,13 @@ import type {
 import { Service } from "@src/services/about";
 import { useQuery } from "@tanstack/react-query";
 
-export const useData = () => {
+export const useData = (param?: number) => {
   return useQuery({
-    queryKey: ["data"],
-    queryFn: async () => {
-      const result = await Service.getApi();
-      return result;
+    queryKey: ["data", param || 0],
+    queryFn: () => {
+      return Service.getApi();
     },
+    staleTime: 0,
     select: (data) => {
       return {
         About:
