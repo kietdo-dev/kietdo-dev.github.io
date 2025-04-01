@@ -61,11 +61,7 @@ export const WorkForm: FC<WorkFormProps> = ({ className, data, onRefetch }) => {
           </span>
         </AddWorkDialog>
       </div>
-      <div className="w-full flex justify-end relative my-5 h-10">
-        <Button className="w-20" onClick={onReload}>
-          Reload
-        </Button>
-      </div>
+
       {data && (
         <Accordion
           type="single"

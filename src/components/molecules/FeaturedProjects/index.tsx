@@ -2,6 +2,8 @@ import Image from "next/image";
 import * as motion from "motion/react-client";
 import type { FC } from "react";
 
+import ArrowLeft from "@public/icons/left-arrow.svg";
+import ProjectIcon from "@public/icons/project.svg";
 import {
   Accordion,
   AccordionContent,
@@ -23,7 +25,7 @@ export const FeaturedProjects: FC<ProjectProps[]> = (data) => {
             <AccordionTrigger className="font-sans text-lg font-semibold">
               <div className="flex items-center gap-4">
                 <Image
-                  src="./icons/project.svg"
+                  src={ProjectIcon}
                   alt="icon"
                   width={20}
                   height={20}
@@ -56,7 +58,7 @@ export const FeaturedProjects: FC<ProjectProps[]> = (data) => {
 
       <span className="text-xs text-gray-700 flex gap-3 border p-2 border-dashed mt-5">
         <Image
-          src="./icons/left-arrow.svg"
+          src={ArrowLeft}
           alt="icon"
           width={16}
           height={16}

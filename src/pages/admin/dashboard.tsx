@@ -10,6 +10,7 @@ import {
   TabsTrigger,
 } from "@src/components/atoms/Tabs";
 import { AboutForm } from "@src/components/organisms/AboutForm";
+import { ProjectForm } from "@src/components/organisms/ProjectForm";
 import { WorkForm } from "@src/components/organisms/WorkForm";
 import { useData } from "@src/hooks/useData";
 import AdminLayout from "@src/layouts/AdminLayout";
@@ -112,7 +113,10 @@ export default function Dashboard() {
               value="projects"
               onClick={() => setActiveTab("projects")}
             >
-              Change your password here.
+              <ProjectForm
+                data={data?.FeaturedProjects || []}
+                onRefetch={() => setRefetchParams(Date.now())}
+              />
             </TabsContent>
           </Tabs>
         </div>

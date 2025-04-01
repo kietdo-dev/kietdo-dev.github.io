@@ -1,5 +1,8 @@
 import { Client } from "@notionhq/client";
-import type { WorkExperienceProps } from "@src/interfaces/data";
+import type {
+  CreateProjectREQ,
+  WorkExperienceProps,
+} from "@src/interfaces/data";
 import type { NotionTable } from "@src/interfaces/notion";
 
 const notion = new Client({ auth: process.env.NOTION_TOKEN });
@@ -133,6 +136,36 @@ export const Notion = {
           database_id: getDBType(tableType) || "",
         },
         properties,
+      });
+      return response;
+    }
+    return null;
+  },
+
+  createProject: async (tableType: NotionTable, data: CreateProjectREQ) => {
+    if (notionToken) {
+      const propertyMappings = {
+        name: { type: "title", field: "Name" },
+        description: { type: "rich_text", field: "Description" },
+        techStack: { type: "rich_text", field: "TechStack" },
+      };
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const propertiesObj: Record<string, any> = {};
+      for (const [key, config] of Object.entries(propertyMappings)) {
+        const value = data[key as keyof CreateProjectREQ];
+        if (value !== undefined) {
+          const textContent = { text: { content: value } };
+          propertiesObj[formatProps(config.field)] = {
+            [config.type]: [textContent],
+          };
+        }
+      }
+
+      const response = await notion.pages.create({
+        parent: {
+          database_id: getDBType(tableType) || "",
+        },
+        properties: propertiesObj,
       });
       return response;
     }
