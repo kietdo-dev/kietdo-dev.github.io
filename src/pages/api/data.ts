@@ -3,10 +3,7 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import type { NotionTable } from "@src/interfaces/notion";
 import { Notion } from "@src/lib/notion";
 
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse
-) {
+export default async function handler(_: NextApiRequest, res: NextApiResponse) {
   try {
     const data: { [key: string]: unknown } = {};
     const tables = ["About", "WorkExperience", "FeaturedProjects"];

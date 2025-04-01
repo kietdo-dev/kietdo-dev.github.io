@@ -19,7 +19,7 @@ export const getServerSideProps = (async () => {
 
   try {
     await queryClient.fetchQuery({
-      queryKey: ["data"],
+      queryKey: ["data", 0],
       queryFn: () => {
         return Service.getApi();
       },
@@ -38,7 +38,7 @@ export const getServerSideProps = (async () => {
 }) satisfies GetServerSideProps;
 
 export default function Home() {
-  const { data, isFetching: loading } = useData();
+  const { data, isFetching: loading } = useData(0);
 
   return (
     <Fragment>

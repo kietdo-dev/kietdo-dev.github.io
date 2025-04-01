@@ -13,3 +13,9 @@ export type ProjectProps = {
   name: string;
   techStack: string[];
 };
+
+export type CreateProjectREQ = {
+  name: string;
+  techStack: string;
+  description: string;
+};

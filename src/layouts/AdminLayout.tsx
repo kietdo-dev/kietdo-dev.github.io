@@ -1,7 +1,5 @@
 import { type FC, type ReactNode } from "react";
 
-import { Footer } from "@src/components/molecules/Footer";
-import { Header } from "@src/components/molecules/Header";
 import { fontMono, fontSans } from "@src/lib/fonts";
 import { cn } from "@src/lib/utils";
 
@@ -9,16 +7,20 @@ interface Props {
   children: ReactNode;
 }
 
-const MainLayout: FC<Props> = ({ children }) => {
+const AdminLayout: FC<Props> = ({ children }) => {
   return (
     <div className={cn(fontMono.variable, fontSans.variable)}>
-      <Header />
-      <main className={cn("container min-h-[calc(100vh_-_157px)]")}>
+      <main
+        className={cn(
+          "container",
+          "flex min-h-screen min-w-screen justify-center items-center",
+          "bg-[linear-gradient(to_top,_#fad0c4_0%,_#ffd1ff_100%)]"
+        )}
+      >
         {children}
       </main>
-      <Footer />
     </div>
   );
 };
 
-export default MainLayout;
+export default AdminLayout;
