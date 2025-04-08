@@ -38,7 +38,7 @@ export const getServerSideProps = (async () => {
 }) satisfies GetServerSideProps;
 
 export default function Home() {
-  const { data, isFetching: loading } = useData(0);
+  const { data, isFetching: loading, isFetched } = useData(0);
 
   return (
     <Fragment>
@@ -68,12 +68,12 @@ export default function Home() {
           content="Portfolio of Kiet Do, a front-end developer showcasing projects and professional experience"
         />
         <link rel="canonical" href="https://dokiet.is-a.dev" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon.png" />
       </Head>
 
       <div className="flex flex-col gap-5 md:gap-9">
         <Hero />
-        <PersonalInfo />
+        <PersonalInfo fetched={isFetched && !loading} />
 
         {!loading ? (
           <>

@@ -7,6 +7,7 @@ import {
   EnglishHelloEffect,
   HelloEffect,
 } from "@src/components/atoms/HelloEffect";
+import { Tiles } from "@src/components/atoms/Tiles";
 import { cn } from "@src/lib/utils";
 
 const TMP_AVATAR = "/images/avatar.jpg";
@@ -25,8 +26,16 @@ export const Hero: FC = () => {
 
   return (
     <div className="flex flex-col w-full">
-      <div className="flex h-80 w-full items-center justify-center">
-        {mode ? <EnglishHelloEffect /> : <HelloEffect />}
+      <div className="flex h-80 w-full items-center justify-center relative">
+        <Tiles
+          className="-z-1 absolute w-[100vw] overflow-hidden"
+          rows={50}
+          cols={8}
+          tileSize="md"
+        />
+        <div className="absolute">
+          {mode ? <EnglishHelloEffect /> : <HelloEffect />}
+        </div>
       </div>
       <div className="flex gap-7 flex-wrap">
         <Image
